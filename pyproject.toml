@@ -1,0 +1,102 @@
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "m365-admin-mcp"
+version = "1.0.0"
+description = "Microsoft 365 Admin MCP Server for Liberty Gold Silver"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Liberty Gold Silver", email = "admin@libertygoldsilver.com"}
+]
+keywords = ["mcp", "microsoft365", "graph-api", "admin", "automation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "msgraph-sdk>=1.0.0",
+    "azure-identity>=1.15.0",
+    "mcp>=0.9.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "jinja2>=3.1.0",
+    "bleach>=6.1.0",
+    "python-dotenv>=1.0.0",
+    "httpx>=0.25.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "black>=23.12.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+]
+encryption = [
+    "pysqlcipher3>=1.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/libertygoldsilver/m365-admin-mcp"
+Documentation = "https://github.com/libertygoldsilver/m365-admin-mcp/docs"
+Repository = "https://github.com/libertygoldsilver/m365-admin-mcp"
+
+[project.scripts]
+m365-admin-mcp = "m365_admin_mcp.server:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "--cov=src --cov-report=html --cov-report=term-missing"
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501", # line too long (handled by black)
+    "B008", # do not perform function calls in argument defaults
+]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+strict_equality = true

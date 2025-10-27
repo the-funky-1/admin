@@ -1,0 +1,32 @@
+# Core Dependencies
+msgraph-sdk>=1.0.0
+azure-identity>=1.15.0
+mcp>=0.9.0
+
+# Data Validation & Settings
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+
+# Template Rendering
+jinja2>=3.1.0
+
+# HTML Sanitization
+bleach>=6.1.0
+
+# Configuration
+python-dotenv>=1.0.0
+
+# HTTP Client
+httpx>=0.25.0
+
+# Optional: Database Encryption
+# pysqlcipher3>=1.2.0
+
+# Development Dependencies (install with pip install -e ".[dev]")
+# pytest>=7.4.0
+# pytest-asyncio>=0.21.0
+# pytest-cov>=4.1.0
+# pytest-mock>=3.12.0
+# black>=23.12.0
+# ruff>=0.1.0
+# mypy>=1.7.0
