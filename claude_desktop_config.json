@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "m365-admin": {
+      "command": "python",
+      "args": [
+        "-m",
+        "m365_admin_mcp.server"
+      ],
+      "cwd": "/home/funky_one/Music/MCPs/admin",
+      "env": {
+        "PYTHONPATH": "/home/funky_one/Music/MCPs/admin/src"
+      }
+    }
+  }
+}

@@ -10,7 +10,8 @@
       "Bash(python -m m365_admin_mcp.server:*)",
       "Bash(pip install:*)",
       "Bash(python:*)",
-      "mcp__context7__resolve-library-id"
+      "mcp__context7__resolve-library-id",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []
